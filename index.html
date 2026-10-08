@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NMU RADIO — The Voice of NMU</title>
+
+<meta name="description" content="NMU Radio — The voice, sound and heartbeat of the NMU student community.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --navy:#061326;
+    --navy2:#091d38;
+    --blue:#0c3264;
+    --blue2:#124b91;
+    --gold:#e4b34d;
+    --gold2:#f4cf75;
+    --white:#ffffff;
+    --muted:#aab8cb;
+    --card:#0b203d;
+    --border:rgba(255,255,255,.09);
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--navy);
+    color:var(--white);
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:76px;
+    z-index:999;
+    background:rgba(6,19,38,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+    max-width:1250px;
+    height:100%;
+    margin:auto;
+    padding:0 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand-icon{
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--gold),#a87518);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    color:#061326;
+    box-shadow:0 8px 25px rgba(228,179,77,.18);
+}
+
+.brand-text strong{
+    display:block;
+    font-size:18px;
+    letter-spacing:1px;
+}
+
+.brand-text span{
+    display:block;
+    font-size:10px;
+    color:var(--gold);
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:32px;
+}
+
+.nav-links a{
+    color:#d7e0ed;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-live{
+    padding:10px 17px;
+    border:1px solid rgba(228,179,77,.4);
+    border-radius:30px;
+    color:var(--gold)!important;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:820px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 80% 30%,rgba(18,75,145,.45),transparent 35%),
+        radial-gradient(circle at 20% 70%,rgba(228,179,77,.08),transparent 30%),
+        linear-gradient(135deg,#040d1b,#091d38 60%,#061326);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    right:-250px;
+    top:120px;
+    border:1px solid rgba(228,179,77,.12);
+    border-radius:50%;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    right:-170px;
+    top:195px;
+    border:1px solid rgba(228,179,77,.08);
+    border-radius:50%;
+}
+
+.hero-container{
+    width:100%;
+    max-width:1250px;
+    margin:auto;
+    padding:130px 25px 80px;
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:720px;
+}
+
+.live-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 15px;
+    border-radius:30px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    color:#fff;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:1.5px;
+    margin-bottom:25px;
+}
+
+.live-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#ff3d4d;
+    box-shadow:0 0 12px #ff3d4d;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{opacity:1;transform:scale(1)}
+    50%{opacity:.4;transform:scale(.75)}
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,88px);
+    line-height:1.02;
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero-description{
+    color:var(--muted);
+    font-size:18px;
+    max-width:620px;
+    margin-bottom:35px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    padding:15px 24px;
+    border-radius:10px;
+    font-weight:bold;
+    font-size:14px;
+    transition:.3s;
+}
+
+.btn-primary{
+    background:var(--gold);
+    color:#061326;
+}
+
+.btn-primary:hover{
+    background:var(--gold2);
+    transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(228,179,77,.2);
+}
+
+.btn-outline{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+}
+
+.btn-outline:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+/* ================= HERO VISUAL ================= */
+
+.radio-orb{
+    width:390px;
+    height:390px;
+    margin:auto;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.orbit{
+    position:absolute;
+    inset:0;
+    border:1px solid rgba(228,179,77,.18);
+    border-radius:50%;
+    animation:rotate 18s linear infinite;
+}
+
+.orbit::after{
+    content:"";
+    position:absolute;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--gold);
+    top:30px;
+    left:50%;
+    box-shadow:0 0 20px var(--gold);
+}
+
+.orbit2{
+    position:absolute;
+    inset:35px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    animation:rotate 12s linear infinite reverse;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
+}
+
+.orb-center{
+    width:210px;
+    height:210px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle at 35% 30%,#1859a5,#071a34 65%);
+    border:1px solid rgba(228,179,77,.35);
+    box-shadow:
+        0 0 80px rgba(18,75,145,.35),
+        inset 0 0 50px rgba(0,0,0,.3);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.orb-mic{
+    font-size:60px;
+    margin-bottom:5px;
+}
+
+.orb-center span{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:bold;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    padding:100px 25px;
+}
+
+.container{
+    max-width:1250px;
+    margin:auto;
+}
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    margin-bottom:45px;
+    gap:20px;
+}
+
+.heading-label{
+    color:var(--gold);
+    font-size:11px;
+\    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.section-heading h2{
+    font-size:42px;
+    letter-spacing:-1px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    max-width:450px;
+    font-size:14px;
+}
+
+
+<!-- ================= PLAYER ================= -->
+
+<section class="player-section" id="listen">
+
+<div class="player">
+
+<div class="player-top">
+
+<div>
+
+<div class="on-air">
+<span class="on-air-dot"></span>
+LIVE BROADCAST
+</div>
+
+<div class="player-title">
+You're listening to <span>NMU Radio</span>
+</div>
+
+</div>
+
+<div style="color:#aab8cb;font-size:12px;">
+Online Radio
+</div>
+
+</div>
+
+
+<div class="audio-wrap">
+
+<audio controls>
+
+<source
+src="https://harbour-gmbh-ext-tsunami.trycloudflare.com/stream"
+type="audio/mpeg">
+
+Your browser does not support the audio player.
+
+</audio>
+
+</div>
+
+
+<div class="player-bottom">
+
+<span>🎵 NMU Radio Live Stream</span>
+
+<span>128 kbps • MP3</span>
+
+</div>
+
+</div>
+
+</section>
+/* ================= NOW PLAYING ================= */
+
+.now-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.now-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+}
+
+.song-display{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.song-art{
+    width:110px;
+    height:110px;
+    border-radius:14px;
+    background:
+        radial-gradient(circle,#e4b34d 2px,transparent 3px),
+        linear-gradient(135deg,#164d91,#071a34);
+    background-size:15px 15px,100% 100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:38px;
+}
+
+.song-info small{
+    color:var(--gold);
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.song-info h3{
+    font-size:24px;
+    margin:7px 0;
+}
+
+.song-info p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    height:100%;
+}
+
+.stat{
+    background:rgba(255,255,255,.035);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.stat strong{
+    font-size:25px;
+    color:var(--gold);
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:11px;
+}
+
+/* ================= PROGRAMMES ================= */
+
+.schedule{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.program{
+    position:relative;
+    overflow:hidden;
+    min-height:230px;
+    padding:28px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#0d2b52,#091a32);
+    border:1px solid var(--border);
+    transition:.3s;
+}
+
+.program:hover{
+    transform:translateY(-7px);
+    border-color:rgba(228,179,77,.45);
+}
+
+.program-number{
+    position:absolute;
+    right:20px;
+    top:15px;
+    font-size:55px;
+    font-weight:bold;
+    color:rgba(255,255,255,.035);
+}
+
+.program-time{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:25px;
+}
+
+.program h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.program p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* ================= NEWS ================= */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:1.4fr 1fr 1fr;
+    gap:20px;
+}
+
+.news{
+    min-height:270px;
+    border-radius:18px;
+    overflow:hidden;
+    background:var(--card);
+    border:1px solid var(--border);
+    transition:.3s;
+}
+
+.news:hover{
+    transform:translateY(-5px);
+}
+
+.news-image{
+    height:130px;
+    background:
+        linear-gradient(135deg,rgba(18,75,145,.9),rgba(6,19,38,.95));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.news-content{
+    padding:22px;
+}
+
+.news-tag{
+    color:var(--gold);
+    font-size:9px;
+    letter-spacing:2px;
+    font-weight:bold;
+}
+
+.news h3{
+    font-size:18px;
+    margin:8px 0;
+}
+
+.news p{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* ================= PRESENTERS ================= */
+
+.people{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.person{
+    text-align:center;
+    padding:25px;
+    border-radius:18px;
+    background:var(--card);
+    border:1px solid var(--border);
+}
+
+.person-photo{
+    width:110px;
+    height:110px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#164d91,#d09b36);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:42px;
+}
+
+.person h3{
+    font-size:17px;
+}
+
+.person span{
+    color:var(--gold);
+    font-size:11px;
+}
+
+/* ================= ABOUT ================= */
+
+.about{
+    background:
+        linear-gradient(135deg,#0d315d,#071a34);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:55px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+.about h2 span{
+    color:var(--gold);
+}
+
+.about p{
+    color:var(--muted);
+    font-size:15px;
+    margin-bottom:15px;
+}
+
+.about-points{
+    display:grid;
+    gap:15px;
+}
+
+.point{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+}
+
+.point-icon{
+    min-width:40px;
+    height:40px;
+    border-radius:10px;
+    background:rgba(228,179,77,.1);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.point h4{
+    margin-bottom:3px;
+}
+
+.point p{
+    font-size:12px;
+    margin:0;
+}
+
+/* ================= JOIN ================= */
+
+.join{
+    text-align:center;
+    padding:80px 30px;
+    border-radius:22px;
+    background:
+        radial-gradient(circle at center,rgba(18,75,145,.5),transparent 65%),
+        #081a32;
+    border:1px solid var(--border);
+}
+
+.join h2{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.join h2 span{
+    color:var(--gold);
+}
+
+.join p{
+    max-width:600px;
+    margin:0 auto 30px;
+    color:var(--muted);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#030b17;
+    border-top:1px solid var(--border);
+    padding:60px 25px 25px;
+}
+
+.footer-grid{
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:45px;
+}
+
+.footer-brand p{
+    color:var(--muted);
+    max-width:380px;
+    font-size:13px;
+    margin-top:15px;
+}
+
+.footer h3{
+    font-size:14px;
+    color:var(--gold);
+    margin-bottom:18px;
+}
+
+.footer a{
+    display:block;
+    color:var(--muted);
+    font-size:13px;
+    margin-bottom:9px;
+}
+
+.footer a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom{
+    max-width:1250px;
+    margin:auto;
+    border-top:1px solid var(--border);
+    padding-top:22px;
+    display:flex;
+    justify-content:space-between;
+    color:#63748b;
+    font-size:11px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:950px){
+
+    .nav-links{
+        gap:15px;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .radio-orb{
+        width:300px;
+        height:300px;
+    }
+
+    .orb-center{
+        width:165px;
+        height:165px;
+    }
+
+    .now-grid{
+        grid-template-columns:1fr;
+    }
+
+    .schedule{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .news-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .people{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        height:auto;
+    }
+
+    .nav-container{
+        padding:12px 18px;
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .nav-links{
+        width:100%;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
+    }
+
+    .nav-links a{
+        font-size:11px;
+    }
+
+    .hero{
+        min-height:760px;
+    }
+
+    .hero-container{
+        padding-top:150px;
+    }
+
+    .hero h1{
+        letter-spacing:-2px;
+    }
+
+    .hero-description{
+        font-size:15px;
+    }
+
+    .radio-orb{
+        width:250px;
+        height:250px;
+    }
+
+    .orb-center{
+        width:140px;
+        height:140px;
+    }
+
+    .orb-mic{
+        font-size:45px;
+    }
+
+    .player-section{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+    .player{
+        padding:20px;
+    }
+
+    .section{
+        padding:70px 18px;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .section-heading h2{
+        font-size:32px;
+        margin-bottom:10px;
+    }
+
+    .schedule,
+    .news-grid,
+    .people{
+        grid-template-columns:1fr;
+    }
+
+    .song-display{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .about{
+        padding:30px;
+    }
+
+    .about h2{
+        font-size:32px;
+    }
+
+    .join h2{
+        font-size:32px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:8px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="navbar">
+
+<div class="nav-container">
+
+<a href="#home" class="brand">
+
+<div class="brand-icon">🎙</div>
+
+<div class="brand-text">
+<strong>NMU RADIO</strong>
+<span>The Voice of NMU</span>
+</div>
+
+</a>
+
+<div class="nav-links">
+
+<a href="#home">Home</a>
+<a href="#programmes">Programmes</a>
+<a href="#news">News</a>
+<a href="#presenters">Presenters</a>
+<a href="#about">About</a>
+
+<a href="#listen" class="nav-live">
+🔴 Listen Live
+</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+<div class="hero-container">
+
+<div class="hero-content">
+
+<div class="live-pill">
+<span class="live-dot"></span>
+ON AIR — NMU RADIO
+</div>
+
+<h1>
+Your Campus.<br>
+Your <span>Voice.</span>
+</h1>
+
+<p class="hero-description">
+Welcome to NMU Radio — the sound of the Nigerian Maritime University
+community. Music, conversations, campus stories, entertainment and
+everything that keeps the NMU community connected.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#listen" class="btn btn-primary">
+▶ Listen Live
+</a>
+
+<a href="#programmes" class="btn btn-outline">
+Explore Programmes →
+</a>
+
+</div>
+
+</div>
+
+
+<div class="radio-orb">
+
+<div class="orbit"></div>
+<div class="orbit2"></div>
+
+<div class="orb-center">
+
+<div class="orb-mic">🎙️</div>
+
+<span>NMU RADIO</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PLAYER ================= -->
+
+<section class="player-section" id="listen">
+
+<div class="player">
+
+<div class="player-top">
+
+<div>
+
+<div class="on-air">
+<span class="on-air-dot"></span>
+LIVE BROADCAST
+</div>
+
+<div class="player-title">
+You're listening to <span>NMU Radio</span>
+</div>
+
+</div>
+
+<div style="color:#aab8cb;font-size:12px;">
+Online Radio
+</div>
+
+</div>
+
+
+<div class="audio-wrap">
+
+<audio controls>
+
+<source
+src="http://10.188.82.88:8000/stream"
+type="audio/mpeg">
+
+Your browser does not support the audio player.
+
+</audio>
+
+</div>
+
+
+<div class="player-bottom">
+
+<span>🎵 NMU Radio Live Stream</span>
+
+<span>128 kbps • MP3</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= NOW PLAYING ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="heading-label">
+Live Information
+</div>
+
+<h2>Now Playing</h2>
+
+</div>
+
+<p>
+Stay connected with what's happening on the NMU Radio airwaves.
+</p>
+
+</div>
+
+
+<div class="now-grid">
+
+<div class="now-card">
+
+<div class="song-display">
+
+<div class="song-art">
+🎵
+</div>
+
+<div class="song-info">
+
+<small>NOW ON AIR</small>
+
+<h3>NMU Radio Live</h3>
+
+<p>
+Music • Entertainment • Campus Life
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="now-card">
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>LIVE</strong>
+<span>Broadcast Status</span>
+
+</div>
+
+<div class="stat">
+
+<strong>24/7</strong>
+<span>Radio Experience</span>
+
+</div>
+
+<div class="stat">
+
+<strong>NMU</strong>
+<span>Campus Community</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROGRAMMES ================= -->
+
+<section class="section" id="programmes">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="heading-label">
+On The Station
+</div>
+
+<h2>Our Programmes</h2>
+
+</div>
+
+<p>
+From early mornings to evening vibes, there's always something
+happening on NMU Radio.
+</p>
+
+</div>
+
+
+<div class="schedule">
+
+<div class="program">
+
+<div class="program-number">01</div>
+
+<div class="program-time">
+07:00 AM — 10:00 AM
+</div>
+
+<h3>Morning Drive</h3>
+
+<p>
+Wake up with music, motivation, campus updates and the latest
+conversations to start your day.
+</p>
+
+</div>
+
+
+<div class="program">
+
+<div class="program-number">02</div>
+
+<div class="program-time">
+12:00 PM — 02:00 PM
+</div>
+
+<h3>Campus Connect</h3>
+
+<p>
+Student conversations, interviews, entertainment and stories
+from around the NMU community.
+</p>
+
+</div>
+
+
+<div class="program">
+
+<div class="program-number">03</div>
+
+<div class="program-time">
+04:00 PM — 06:00 PM
+</div>
+
+<h3>Campus Pulse</h3>
+
+<p>
+What's happening around campus? Get the latest conversations,
+trends and student experiences.
+</p>
+
+</div>
+
+
+<div class="program">
+
+<div class="program-number">04</div>
+
+<div class="program-time">
+06:00 PM — 09:00 PM
+</div>
+
+<h3>Evening Vibes</h3>
+
+<p>
+Relax after the day's activities with music, conversations
+and entertainment.
+</p>
+
+</div>
+
+
+<div class="program">
+
+<div class="program-number">05</div>
+
+<div class="program-time">
+09:00 PM — 11:00 PM
+</div>
+
+<h3>Night Shift</h3>
+
+<p>
+Late-night music, stories and conversations for students
+who are still awake.
+</p>
+
+</div>
+
+
+<div class="program">
+
+<div class="program-number">06</div>
+
+<div class="program-time">
+SPECIAL PROGRAMME
+</div>
+
+<h3>NMU Spotlight</h3>
+
+<p>
+Exclusive interviews and conversations with students,
+creatives and members of the NMU community.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= NEWS ================= -->
+
+<section class="section" id="news">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="heading-label">
+Stay Updated
+</div>
+
+<h2>Campus News</h2>
+
+</div>
+
+<p>
+News, events and stories from the NMU community.
+</p>
+
+</div>
+
+
+<div class="news-grid">
+
+
+<div class="news">
+
+<div class="news-image">
+🎓
+</div>
+
+<div class="news-content">
+
+<div class="news-tag">
+CAMPUS LIFE
+</div>
+
+<h3>Life at NMU</h3>
+
+<p>
+Discover student activities, campus experiences and
+the people making NMU interesting.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="news">
+
+<div class="news-image">
+📅
+</div>
+
+<div class="news-content">
+
+<div class="news-tag">
+EVENTS
+</div>
+
+<h3>What's Happening?</h3>
+
+<p>
+Keep track of upcoming student activities and events.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="news">
+
+<div class="news-image">
+⭐
+</div>
+
+<div class="news-content">
+
+<div class="news-tag">
+SPOTLIGHT
+</div>
+
+<h3>Student Spotlight</h3>
+
+<p>
+Celebrating talented and inspiring members of the
+NMU community.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PRESENTERS ================= -->
+
+<section class="section" id="presenters">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div>
+
+<div class="heading-label">
+Meet The Team
+</div>
+
+<h2>Our Presenters</h2>
+
+</div>
+
+<p>
+The voices behind the programmes and conversations
+you hear on NMU Radio.
+</p>
+
+</div>
+
+
+<div class="people">
+
+<div class="person">
+
+<div class="person-photo">🎙️</div>
+
+<h3>Radio Host</h3>
+
+<span>Presenter</span>
+
+</div>
+
+
+<div class="person">
+
+<div class="person-photo">🎧</div>
+
+<h3>Music Host</h3>
+
+<span>DJ / Presenter</span>
+
+</div>
+
+
+<div class="person">
+
+<div class="person-photo">📰</div>
+
+<h3>Campus Reporter</h3>
+
+<span>News & Media</span>
+
+</div>
+
+
+<div class="person">
+
+<div class="person-photo">🎤</div>
+
+<h3>Talk Host</h3>
+
+<span>Entertainment</span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section class="section" id="about">
+
+<div class="container">
+
+<div class="about">
+
+<div>
+
+<div class="heading-label">
+About The Station
+</div>
+
+<h2>
+More Than A Radio.<br>
+It's <span>Our Voice.</span>
+</h2>
+
+<p>
+NMU Radio is a student-focused online radio platform designed
+to connect members of the NMU community through music,
+conversation, information and entertainment.
+</p>
+
+<p>
+Our vision is to create a platform where students can express
+themselves, discover talent, share ideas and stay connected
+with campus life.
+</p>
+
+</div>
+
+
+<div class="about-points">
+
+<div class="point">
+
+<div class="point-icon">🎙</div>
+
+<div>
+
+<h4>Student Voice</h4>
+
+<p>
+A platform for students to express ideas and creativity.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<div class="point-icon">🎵</div>
+
+<div>
+
+<h4>Entertainment</h4>
+
+<p>
+Music and programmes designed for the campus community.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<div class="point-icon">📡</div>
+
+<div>
+
+<h4>Connected Community</h4>
+
+<p>
+Keeping students connected wherever they are.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="point">
+
+<div class="point-icon">⭐</div>
+
+<div>
+
+<h4>Student Talent</h4>
+
+<p>
+A platform for presenters, creatives and emerging talent.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= JOIN ================= -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="join">
+
+<div class="heading-label">
+Become Part Of It
+</div>
+
+<h2>
+Want To Be Part Of <span>NMU Radio?</span>
+</h2>
+
+<p>
+We're building a platform for presenters, DJs, reporters,
+content creators, producers and students who want to make
+an impact.
+</p>
+
+<a href="mailto:nmuradio@example.com" class="btn btn-primary">
+📩 Join The Team
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="brand">
+
+<div class="brand-icon">🎙</div>
+
+<div class="brand-text">
+
+<strong>NMU RADIO</strong>
+
+<span>The Voice of NMU</span>
+
+</div>
+
+</div>
+
+<p>
+Music. Conversations. Campus life.
+One community. One voice.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>EXPLORE</h3>
+
+<a href="#home">Home</a>
+<a href="#programmes">Programmes</a>
+<a href="#news">Campus News</a>
+<a href="#presenters">Presenters</a>
+
+</div>
+
+
+<div>
+
+<h3>CONNECT</h3>
+
+<a href="#about">About NMU Radio</a>
+<a href="#listen">Listen Live</a>
+<a href="#programmes">Schedule</a>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 NMU Radio
+</span>
+
+<span>
+The Voice of NMU
+</span>
+
+</div>
+
+</footer>
+
+</body>
+</html>
